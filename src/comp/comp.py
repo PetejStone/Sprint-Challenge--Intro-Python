@@ -24,13 +24,13 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = [i for i in humans if i.name[0] == 'D']
+a = [f"{i.name}" for i in humans if i.name[0] == 'D']
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [i for i in humans if i.name[len(i.name) - 1] == "e"]
+b = [f"{i.name}" for i in humans if i.name[len(i.name) - 1] == "e"]
 
 print(b)
 
@@ -39,12 +39,14 @@ print(b)
 ##checking ord('C') and ord('G') in python REPL,, C == 67 and G == 71
 print("Starts between C and G, inclusive:")
 alph_range = []
+c = []
 for letter in range(67,72):
     alph_range.append(chr(letter)) # converts to letter equivelant
 
 for letter in alph_range:
-    c = [i for i in humans if i.name[0] == letter]
-    print(c)
+    d = [c.append(f"{i.name}") for i in humans if i.name[0] == letter]
+print(c)
+    
 
 
 
@@ -69,10 +71,11 @@ num_range = []
 for number in range(27,33):
     num_range.append(number)
 
-
+f = []
 for number in num_range:
-    f = [(f"{i.name}", i.age) for i in humans if i.age == number]
-    print(f)
+    d = [f.append((f"{i.name}", i.age)) for i in humans if i.age == number]
+print(f)
+
 
 
 
