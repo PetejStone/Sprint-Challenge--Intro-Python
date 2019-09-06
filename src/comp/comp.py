@@ -24,24 +24,33 @@ humans = [
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [i for i in humans if i.name[0] == 'D']
 print(a)
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [i for i in humans if i.name[len(i.name) - 1] == "e"]
+
 print(b)
 
 # Write a list comprehension that creates a list of names of everyone
-# whose name starts with any letter between 'C' and 'G' inclusive.
+# whose name starts with any letter between 'C' and 'G' inclusive
+##checking ord('C') and ord('G') in python REPL,, C == 67 and G == 71
 print("Starts between C and G, inclusive:")
-c = []
-print(c)
+alph_range = []
+for letter in range(67,72):
+    alph_range.append(chr(letter))
+
+for letter in alph_range:
+    c = [i for i in humans if i.name[0] == letter]
+    print(c)
+
+
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [a.age + 10 for a in humans]
 print(d)
 
 # Write a list comprehension that creates a list of strings which are the name
