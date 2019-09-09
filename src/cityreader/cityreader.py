@@ -36,7 +36,7 @@ with open('cities.csv') as csv_file:
             line_count += 1
 
             
-            cities.append(City(row[0], row[3], row[4]))
+            cities.append(City(row[0], float(row[3]), float(row[4])))
     print(f'Processed {line_count} lines.')
 
 #print(cities)
