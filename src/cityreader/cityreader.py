@@ -90,17 +90,19 @@ for c in cities:
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
+   
+    # Setting up an array to hold range of latitudes 
     lat_range = []
-    if lat2 < lat1:
-        for number in range(lat2,lat1):
-            lat_range.append(number)
-    else:
-        for number in range(lat1,lat2):
-            lat_range.append(number)
+    if lat2 < lat1: # if lat2 is > that lat 1 we want it to be the first in the range (from lowest to greatest)
+        for number in range(lat2,lat1): #get all numbers from lat2 to lat1
+            lat_range.append(number) # append each number to the lat range array
+    else: #if lat 1 is the bigger number, we want that to be first
+        for number in range(lat1,lat2): #get all numbers from lat1 to lat2
+            lat_range.append(number) #append each number to the lat range array
 
         
-    lon_range = []
-    if lon2 < lon1:     
+    lon_range = [] # getting a range of numbers for longitude
+    if lon2 < lon1:   # same as above but with lon
         for number2 in range(lon2,lon1):
             lon_range.append(number2)
     else:
@@ -108,10 +110,11 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
             lon_range.append(number2)
 
     
-    within = []
-    for c in cities:
-        if c.lon//1 in lon_range and c.lat//1 in lat_range:
-            within.append(c)
+    within = [] #empty within array to add cities in if they are within range
+    for c in cities: #loop through all cities
+        # if the city's longitude is long_range AND latitude is in lat_range
+        if c.lon//1 in lon_range and c.lat//1 in lat_range: # //1 truncates all numbers that have decimal as no decimals are in our range, just whole numbers
+            within.append(c) #if they are withing range, append the whole city to the within array
             print(within)
       
             # if 35.1055 in range(lat_range[0], lat_range[len(lat_range) -1]):
