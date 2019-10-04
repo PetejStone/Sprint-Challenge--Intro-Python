@@ -48,8 +48,6 @@ for letter in alph_range:
 print(c)
     
 
-
-
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
 d = [a.age + 10 for a in humans]
@@ -65,7 +63,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 
-print("Names and ages between 27 and 32:")
+# print("Names and ages between 27 and 32:")
 
 num_range = []
 for number in range(27,33):
@@ -73,7 +71,7 @@ for number in range(27,33):
 
 f = []
 for number in num_range:
-    d = [f.append((f"{i.name}", i.age)) for i in humans if i.age == number]
+    i = [f.append((f"{i.name}", i.age)) for i in humans if i.age == number]
 print(f)
 
 

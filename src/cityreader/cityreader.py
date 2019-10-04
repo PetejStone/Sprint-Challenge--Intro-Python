@@ -81,12 +81,50 @@ for c in cities:
 
 # todooo Get latitude and longitude values from the user
 
-# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-#   # within will hold the cities that fall within the specified region
-#   within = []
+# lat1 = input('Please enter lat coordinates: ')
+# lon1 = input('Please enter lon coordinaties: ')
 
-#   # todooo Ensure that the lat and lon valuse are all floats
-#   # Go through each city and check to see if it falls within 
-#   # the specified coordinates.
+# lat2 = input('Please enter lat2 coordinates: ')
+# lon2 = input('Please enter lon2 coordinates: ')
 
-#   return within
+
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  # within will hold the cities that fall within the specified region
+    lat_range = []
+    if lat2 < lat1:
+        for number in range(lat2,lat1):
+            lat_range.append(number)
+    else:
+        for number in range(lat1,lat2):
+            lat_range.append(number)
+
+        
+    lon_range = []
+    if lon2 < lon1:     
+        for number2 in range(lon2,lon1):
+            lon_range.append(number2)
+    else:
+        for number2 in range(lon1,lon2):
+            lon_range.append(number2)
+
+    
+    within = []
+    for c in cities:
+        if c.lon//1 in lon_range and c.lat//1 in lat_range:
+            within.append(c)
+            print(within)
+      
+            # if 35.1055 in range(lat_range[0], lat_range[len(lat_range) -1]):
+            #     print('True')
+            # else:
+            #     print('False')
+        #print(lon_range)
+
+
+  
+  # todooo Ensure that the lat and l
+  # on valuse are all floats
+  # Go through each city and check to see if it falls within 
+  # the specified coordinates.
+
+    return within
