@@ -36,7 +36,7 @@ with open('cities.csv') as csv_file:
             line_count += 1
 
             
-            cities.append(City(row[0], row[3], row[4]))
+            cities.append(City(row[0], float(row[3]), float(row[4])))
     print(f'Processed {line_count} lines.')
 
 #print(cities)
@@ -81,12 +81,53 @@ for c in cities:
 
 # todooo Get latitude and longitude values from the user
 
-# def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
-#   # within will hold the cities that fall within the specified region
-#   within = []
+# lat1 = input('Please enter lat coordinates: ')
+# lon1 = input('Please enter lon coordinaties: ')
 
-#   # todooo Ensure that the lat and lon valuse are all floats
-#   # Go through each city and check to see if it falls within 
-#   # the specified coordinates.
+# lat2 = input('Please enter lat2 coordinates: ')
+# lon2 = input('Please enter lon2 coordinates: ')
 
-#   return within
+
+def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  # within will hold the cities that fall within the specified region
+   
+    # Setting up an array to hold range of latitudes 
+    lat_range = []
+    if lat2 < lat1: # if lat2 is > that lat 1 we want it to be the first in the range (from lowest to greatest)
+        for number in range(lat2,lat1): #get all numbers from lat2 to lat1
+            lat_range.append(number) # append each number to the lat range array
+    else: #if lat 1 is the bigger number, we want that to be first
+        for number in range(lat1,lat2): #get all numbers from lat1 to lat2
+            lat_range.append(number) #append each number to the lat range array
+
+        
+    lon_range = [] # getting a range of numbers for longitude
+    if lon2 < lon1:   # same as above but with lon
+        for number2 in range(lon2,lon1):
+            lon_range.append(number2)
+    else:
+        for number2 in range(lon1,lon2):
+            lon_range.append(number2)
+
+    
+    within = [] #empty within array to add cities in if they are within range
+    for c in cities: #loop through all cities
+        # if the city's longitude is long_range AND latitude is in lat_range
+        if c.lon//1 in lon_range and c.lat//1 in lat_range: # //1 truncates all numbers that have decimal as no decimals are in our range, just whole numbers
+            within.append(c) #if they are withing range, append the whole city to the within array
+            print(within)
+      
+            # if 35.1055 in range(lat_range[0], lat_range[len(lat_range) -1]):
+            #     print('True')
+            # else:
+            #     print('False')
+        #print(lon_range)
+
+
+  
+  # todooo Ensure that the lat and l
+  # on valuse are all floats
+  # Go through each city and check to see if it falls within 
+  # the specified coordinates.
+
+    return within
